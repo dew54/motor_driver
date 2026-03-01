@@ -1,0 +1,33 @@
+[Unit]
+Description=QGroundControl Video Streaming Service
+Documentation=https://docs.qgroundcontrol.com/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+Group=video
+
+# Path to the streaming script
+ExecStart=/usr/local/bin/qgc-video-stream.sh
+
+# Restart policy
+Restart=on-failure
+RestartSec=5
+
+# Logging
+StandardOutput=append:/var/log/qgc-video-stream.log
+StandardError=append:/var/log/qgc-video-stream.log
+
+# Security
+Nice=-5
+IOSchedulingClass=realtime
+IOSchedulingPriority=0
+
+# Resource limits
+CPUQuota=50%
+MemoryMax=256M
+
+[Install]
+WantedBy=multi-user.target

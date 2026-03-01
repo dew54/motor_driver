@@ -1,0 +1,12 @@
+# MAVLink protocol library
+pymavlink==2.4.41
+
+# Raspberry Pi GPIO control
+RPi.GPIO==0.7.1
+
+# Optional but recommended dependencies
+# For better performance and debugging
+pyserial==3.5
+
+# Logging and diagnostics
+coloredlogs==15.0.1
